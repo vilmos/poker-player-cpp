@@ -52,3 +52,14 @@ nosetests.xml
 *.a
 
 player
+
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.pbxuser
+
+*.mode1v3
+*.mode2v3
+*.xcworkspace
+
+xcuserdata
