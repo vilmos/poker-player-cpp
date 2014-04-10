@@ -12,10 +12,10 @@ OBJS = $(addprefix $(TGT)/, $(notdir $(SOURCES:.cpp=.o)))
 all: player
 
 player: $(OBJS)
-	$(CXX) $(LDFLAGS) $(OBJS) -o $@
+	$(CXX) $(OBJS) -o $@
 	
 $(TGT)/%.o: $(SRC)/%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(TGT)/* player
