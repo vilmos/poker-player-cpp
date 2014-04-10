@@ -2,20 +2,20 @@
 CC=g++
 
 CFLAGS=-c -std=c++11
+SRC=src
+TGT=obj
+
+SOURCES = $(wildcard $(SRC)/*.cpp)
+
+OBJS = $(addprefix $(TGT)/, $(notdir $(SOURCES:.cpp=.o)))
 
 all: player
 
-player: main.o player.o json.o
-	$(CC) main.o player.o json.o -o player
-
-main.o:
-	$(CC) $(CFLAGS) main.cpp
-
-player.o: 
-	$(CC) $(CFLAGS) player.cpp
-
-json.o:
-	$(CC) $(CFLAGS) json.cpp
+player: $(OBJS)
+	$(CXX) $(LDFLAGS) $(OBJS) -o $@
+	
+$(TGT)/%.o: $(SRC)/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -rf *.o player
+	rm -rf $(TGT)/* player
