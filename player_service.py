@@ -37,6 +37,9 @@ class PlayerService(BaseHTTPServer.BaseHTTPRequestHandler):
         response = r.read()
 
         self.wfile.write(response)
+    def log_message(self, format, *args):
+        return
+
 
 if __name__ == '__main__':
     server_class = BaseHTTPServer.HTTPServer
